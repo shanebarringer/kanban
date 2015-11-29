@@ -12,6 +12,9 @@ const PATHS = {
 
 var common = {
   entry: PATHS.app,
+  resolve: {
+    extensions: ['', '.js', '.jsx']
+  },
   output: {
     path: PATHS.build,
     filename: 'bundle.js'
@@ -22,21 +25,13 @@ var common = {
         test: /\.css$/,
         loaders: ['style', 'css'],
         include: PATHS.app
+      },
+      {
+        test: /\.jsx?$/,
+        loaders: ['babel'],
+        include: PATHS.app
       }
     ]
-  },
-  devServer: {
-    historyApiFallback: true,
-    hot: true,
-    inline: true,
-    progress: true,
-
-    // display only errors to reduce the amount of output
-    stats: 'errors-only',
-
-    //parse host and port from env for ease of customization
-    host: process.env.HOST,
-    port: process.env.PORT
   },
   plugins: [
     new HtmlwebpackPlugin(
