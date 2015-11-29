@@ -10,7 +10,7 @@ const PATHS = {
   build: path.join(__dirname, 'build')
 };
 
-module.exports = {
+var common = {
   entry: PATHS.app,
   output: {
     path: PATHS.build,
