@@ -2,6 +2,6 @@ import React from 'react';
 
 export default class Note extends React.Component {
   render(){
-    return <div> Learning Webpack! </div>
+    return <div> {this.props.task} </div>
   }
 }
